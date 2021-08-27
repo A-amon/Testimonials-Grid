@@ -1,0 +1,160 @@
+
+.testimonial{
+    padding:2rem;
+    border-radius: 10px;
+    color:$c-white;
+
+    &--violet{
+        background-color: $c-moderateviolet;
+        background-image:url('../../../assets/images/bg-pattern-quotation.svg');
+        background-repeat: no-repeat;
+        background-position: top right 20%;
+    }
+
+    &--darkgrayish{
+        background-color: $c-verydarkgrayishblue;
+    }
+
+    &--darkblackish{
+        background-color: $c-verydarkblackishblue;
+    }
+
+    &--white{
+        background-color: $c-white;
+        color:$c-verydarkgrayishblue;
+    }
+
+    &__header{
+        display: flex;
+        align-items: center;
+    }
+
+    &__image{
+        height:3rem;
+        width: 3rem;
+        border:3px solid $c-lightgray;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-right: 1rem;
+        &-img{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__author{
+        font-size: 1rem;
+        &-name, &-role{
+            font-size: inherit;
+            font-weight: $fw-medium;
+            text-transform: capitalize;
+        }
+
+        &-role{
+            opacity:0.5;
+        }
+    }
+
+    &__quote{
+        animation:textFadeUp 0.8s 1 forwards;
+
+        &-title{
+            font-size:1.5rem;
+            display: block;
+            margin: 1rem 0;
+        }
+
+        &-desc{
+            opacity:0.7;
+            font-weight: $fw-medium;
+        }
+    }
+
+    @include tablet-query{
+        // box-shadow:5px 10px 10px $c-lightgray;
+        position: relative;
+        animation:shadowAnim 0.5s 1 forwards;
+
+        &::after{
+            content:'';
+            height:100%;
+            width: 100%;
+            border-radius: inherit;
+            background-color: $c-lightgrayishblue;
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation:cardAnim 1.5s 0.3s 1 forwards;
+        }
+
+        &__quote{
+            opacity: 0;
+            animation-delay: 1.5s;
+        }
+
+        &:nth-child(1){
+            grid-area: first;
+        }
+
+        &:nth-child(2){
+            grid-area:second;
+        }
+
+        &:nth-child(3){
+            grid-area:third;
+        }
+
+        &:nth-child(4){
+            grid-area:fourth;
+        }
+
+        &:nth-child(5){
+            grid-area:fifth;
+        }
+    }
+
+    @include laptop-query{
+        &__quote-title{
+            font-size: 1.3rem;
+        }
+
+        &__image{
+            height: 2rem;
+            width: 2rem;
+        }
+
+        &__author, &__quote-desc{
+            font-size:0.9rem;
+        }
+    }
+}
+
+@keyframes shadowAnim{
+    from {
+        box-shadow:0px 0px 0px $c-lightgray;
+    }
+    to{
+        box-shadow:5px 10px 10px $c-lightgray;
+    }
+}
+
+@keyframes cardAnim {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes textFadeUp {
+    from{
+        transform:translateY(1rem);
+        opacity: 0.5;
+    }
+    to{
+        transform:translateY(0);
+        opacity:1;
+    }
+}

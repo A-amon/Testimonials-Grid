@@ -1,0 +1,27 @@
+
+.testimonials{
+    .container{
+        display: grid;
+        grid-gap:1.5rem;
+    }
+
+    @include tablet-query{
+        .container{
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-areas:"first first second second" 
+                                "third third fourth fourth"
+                                "fifth fifth fifth fifth";
+            grid-template-rows: auto;
+            justify-content: center;
+            align-content: center;
+        }
+    }
+
+    @include laptop-query{
+        .container{
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-areas:"first first second fifth" 
+                                "third fourth fourth fifth";
+        }
+    }
+}

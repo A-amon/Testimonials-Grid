@@ -1,0 +1,17 @@
+
+.container{
+    padding:3rem 2rem;
+    margin: auto;
+
+    @include tablet-query{
+        max-width:$d-tablet;
+    }
+
+    @include laptop-query{
+        max-width: 80%;
+    }
+
+    @include desktop-query{
+        max-width: $d-laptop + 100px;
+    }
+}
